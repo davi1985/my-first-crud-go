@@ -30,7 +30,7 @@ func NewRestException(message, err string, code int, causes []Cause) *RestExcept
 func NewBadRequestException(message string) *RestException {
 	return &RestException{
 		Message: message,
-		Err:     "bad request",
+		Err:     "bad_request",
 		Code:    http.StatusBadRequest,
 	}
 }

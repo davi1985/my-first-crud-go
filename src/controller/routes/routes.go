@@ -6,8 +6,8 @@ import (
 )
 
 func InitRoutes(r *gin.RouterGroup) {
-	r.GET("/users/:id", controller.FindUserById)
-	r.GET("/users/:email", controller.FindUserByEmail)
+	r.GET("/users/id/:id", controller.FindUserById)
+	r.GET("/users/email/:email", controller.FindUserByEmail)
 	r.POST("/users", controller.CreateUser)
 	r.PUT("/users/:id", controller.UpdateUser)
 	r.DELETE("/users/:id", controller.DeleteUser)
