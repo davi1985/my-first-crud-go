@@ -1,12 +1,24 @@
 package controller
 
 import (
-	"github.com/davi1985/my-first-crud-go/src/config/rest_exceptions"
+	"fmt"
+
+	"github.com/davi1985/my-first-crud-go/src/config/exceptions"
+	"github.com/davi1985/my-first-crud-go/src/controller/model/request"
 	"github.com/gin-gonic/gin"
 )
 
 func CreateUser(c *gin.Context) {
-	err := rest_exceptions.NewBadRequestException("Invalid route")
+	var userRequest request.UserRequest
 
-	c.JSON(err.Code, err)
+	if err := c.ShouldBindJSON(&userRequest); err != nil {
+		exception := exceptions.NewBadRequestException(
+			fmt.Sprintf("There are some incorrect fields, error=%s", err.Error()),
+		)
+
+		c.JSON(exception.Code, exception)
+		return
+	}
+
+	fmt.Println(userRequest)
 }

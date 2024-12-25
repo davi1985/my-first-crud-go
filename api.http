@@ -6,3 +6,10 @@ GET http://localhost:3001/users/1
 POST http://localhost:3001/users
 Content-Type: "application/json"
 
+{
+    "email": "email@email.com",
+    "password": 123,
+    "name": "Davi Silva",
+    "age": 39
+}
+

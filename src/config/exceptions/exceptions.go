@@ -1,4 +1,4 @@
-package rest_exceptions
+package exceptions
 
 import "net/http"
 
